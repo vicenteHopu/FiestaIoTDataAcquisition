@@ -1,0 +1,29 @@
+Prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn#> 
+Prefix iotlite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> 
+Prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#> 
+Prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+Prefix time: <http://www.w3.org/2006/time#>
+Prefix m3-lite: <http://purl.org/iot/vocab/m3-lite#>
+Prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+select ?sensorID ?value ?qk ?ti ?latitude ?longitude
+where {
+    ?o a ssn:Observation.
+    ?o ssn:observedBy ?sensorID.       
+    ?o ssn:observationSamplingTime ?t. 
+    ?o ssn:observedProperty ?qkr.
+    ?qkr rdf:type ?qk.
+    Values ?qk {m3-lite:AirTemperature m3-lite:RelativeHumidity m3-lite:AtmosphericPressure m3-lite:ChemicalAgentAtmosphericConcentrationAirParticles m3-lite:ChemicalAgentAtmosphericConcentrationCO m3-lite:ChemicalAgentAtmosphericConcentrationNO2 m3-lite:ChemicalAgentAtmosphericConcentrationO3 m3-lite:ChemicalAgentAtmosphericConcentrationNH3 m3-lite:ChemicalAgentAtmosphericConcentrationVOC m3-lite:ChemicalAgentAtmosphericConcentrationNO m3-lite:ChemicalAgentAtmosphericConcentrationSO2 m3-lite:WindSpeed m3-lite:WindDirection}
+    ?t time:inXSDDateTime ?ti. 
+    ?o ssn:observationResult ?or. 
+    ?or  ssn:hasValue ?v. 
+    ?v dul:hasDataValue ?value.
+    ?o geo:location ?point. 
+    ?point geo:lat ?latitude. 
+    ?point geo:long ?longitude.
+    FILTER (?value != "NaN")
+}
