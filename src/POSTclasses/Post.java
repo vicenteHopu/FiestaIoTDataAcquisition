@@ -98,6 +98,10 @@ public class Post {
 		return true;
 	}
 	
+	public String get_Body() {
+		return this.body;
+	}
+	
 	
 	
 	

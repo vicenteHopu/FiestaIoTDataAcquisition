@@ -25,6 +25,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.params.ClientPNames;
 import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
@@ -47,11 +48,7 @@ public class PostSender {
 	
 	
 	
-	public  void send_Post_Request() {
-
-		
-		
-		
+	public  void send_Post_Request() {		
 		httpclient = HttpClients.createDefault();
 		
 		URI uri=post.get_Uri();
@@ -73,7 +70,12 @@ public class PostSender {
 		} 
 		
 		try {
-			httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+			if(post.get_Body()!=null && !post.get_Body().isEmpty())
+				httppost.setEntity(new StringEntity(post.get_Body()));
+			
+			
+			
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -89,8 +91,6 @@ public class PostSender {
 			    	StringWriter writer = new StringWriter();
 			    	IOUtils.copy(instream, writer, Charset.defaultCharset());
 			    	post_Response = writer.toString();
-			    	//post_Response=post_Response.substring(0, post_Response.length()-3)+".."+post_Response.substring(post_Response.length()-2,post_Response.length()-1);
-			    	System.out.println(post_Response);
 			    	instream.close();
 			    	}
 		
