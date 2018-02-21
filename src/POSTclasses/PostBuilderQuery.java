@@ -44,7 +44,6 @@ public class PostBuilderQuery{
 		
 		Post post= new Post(newServerPath);
 		String token=TokenController.get_TokenController().get_Token();
-		System.out.println("Token is: "+token);
 		post.set_Fiesta_IoT_Token(token);
 		post.set_Fiesta_IoT_Content_Tpye_Plain();
 		post.set_Fiesta_IoT_Cache_Control();
@@ -58,7 +57,6 @@ public class PostBuilderQuery{
 
 		post.set_Body(query);
 
-		System.out.println("Query post:\n "+ post.toString());
 
 
 		return post;

@@ -57,7 +57,6 @@ public class PostSender {
 			httppost = new HttpPost(post.get_Server_Ip());
 		else {
 			httppost = new HttpPost(uri);
-			System.out.println(uri.toString());
 		}
 		
 		

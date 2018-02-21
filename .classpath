@@ -17,5 +17,10 @@
 	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-io-2.6/commons-io-2.6-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-io-2.6/commons-io-2.6-tests.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-io-2.6/commons-io-2.6-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-lang3-3.7/commons-lang3-3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-lang3-3.7/commons-lang3-3.7-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-lang3-3.7/commons-lang3-3.7-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-lang3-3.7/commons-lang3-3.7-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shiver/Desktop/commons-lang3-3.7/commons-lang3-3.7-test-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

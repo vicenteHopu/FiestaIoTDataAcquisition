@@ -12,7 +12,6 @@ public class PostBuilderToken{
 		post.set_Fiesta_IoT_Content_Tpye();
 		post.set_Fiesta_IoT_Cache_Control();
 
-		System.out.println("Token post:\n "+ post.toString());
 	
 		return post;
 	}
